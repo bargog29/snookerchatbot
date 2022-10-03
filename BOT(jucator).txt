@@ -1,0 +1,1 @@
+[["Joe Davis"], ["Fred Davis"], ["John Pulman"], ["Stephen Hendry"], ["Steve Davis"], ["Ray Reardon"], ["Ronnie OSullivan"], ["John Higgins"], ["Mark Williams"], ["John Spencer"], ["Mark Selby"], ["Walter Donaldson"], ["Alex Higgins"], ["Ding Junhui"], ["Judd Trump"], ["Ken Doherty"], ["Jimmy White"], ["John Parrott"], ["Neil Robertson"], ["Stuart Bingham"]]

@@ -1,0 +1,249 @@
+Eu sunt Euclențiu, maestru in snooker, ce ai dori să știi?
+	:Aș vrea să știu cât mai multe despre snooker
+	Întreabă-mă orice legat de snooker
+		:Informatii generale
+		Ce ai dori să știi?
+			:Ce este snooker-ul?
+			https://ro.wikipedia.org/wiki/Snooker
+			:Dimensiuni masa snooker
+			https://cumsa.ro/utile/cum-sa-joci-snooker-si-care-sunt-regulile-jocului/#0-ce-dimensiuni-are-mas...
+			:Regulile jocului
+			https://ro.wikipedia.org/wiki/Snooker#Jocul_din_D
+			:Repoziționarea bilelor colorate
+			https://ro.wikipedia.org/wiki/Snooker#Repoziționarea_bilelor_colorate
+			:Touching Ball
+			https://ro.wikipedia.org/wiki/Snooker#Touching_ball
+			:Faulturi
+			https://ro.wikipedia.org/wiki/Snooker#Faulturi
+			:Fault si ratare
+			https://ro.wikipedia.org/wiki/Snooker#Fault_și_ratare
+			:Free Ball
+			https://ro.wikipedia.org/wiki/Snooker#Free_ball
+			:Scorul și încheierea jocului
+			https://ro.wikipedia.org/wiki/Snooker#Scorul_și_încheierea_jocului
+		:Istoria snooker-ului
+		Informatii generale despre istoria snooker-ului?
+			:da
+			https://ro.wikipedia.org/wiki/Snooker#Istoria
+			:Clasament ALL-Time
+			https://cuetracker.net/statistics/tournaments/won/all-time
+		:Cine conduce si organizeaza turneele?
+		WPBSA(World Professional Billiards and Snooker Association)
+			:Istoric
+			https://wpbsa.com/about-us/history/full-history/
+			:Clasament WPBSA
+			https://wpbsa.com/rankings/world-rankings/
+		IBSF(International Billiards and Snooker Federation)
+			:Istoric
+			https://www.ibsf.info/aboutus
+			:Finale masculine
+			https://en.wikipedia.org/wiki/IBSF_World_Snooker_Championship#Men's_finals
+			:Finale feminine
+			https://en.wikipedia.org/wiki/IBSF_World_Snooker_Championship#Women's_finals
+		:Turneele importante
+		Campionatul Mondial
+			:Generalitati
+			https://ro.wikipedia.org/wiki/Campionatul_Mondial_de_Snooker
+			:Istorie
+			https://ro.wikipedia.org/wiki/Campionatul_Mondial_de_Snooker
+			:Campioni
+			https://ro.wikipedia.org/wiki/Campionatul_Mondial_de_Snooker
+			:Recorduri
+			https://ro.wikipedia.org/wiki/Campionatul_Mondial_de_Snooker
+		Turneele cu puncte
+			:Jucatorul cu cele mai multe turnee minore castigate
+			Mark Selby
+			:Lista turneelor si castigatorii
+			https://en.wikipedia.org/wiki/List_of_minor-ranking_tournaments#Tournaments
+		Turneele pe baza de invitatie
+			:Cel mai important turneu pe baza de invitatie
+			Masters
+				:Rezultate
+				https://ro.wikipedia.org/wiki/Masters_(snooker)
+				:Loc de desfășurare
+				Alexandra Palace(din 2012)
+				:Premiu
+				725.000 £
+				:Campion en-titre
+				Yan Bingtao (CHN)
+		:Jucatori importanti
+		Joe Davis
+			:Nationalitate
+			Englez
+			:Turnee castigate
+			22; 1927-1940,1946(CM)
+			:Break-ul maxim
+			147(in 1955)
+			:Bani castigati
+			£52,672
+		Fred Davis
+			:Nationalitate
+			Englez
+			:Turnee castigate
+			1948,1949,1951,1952,1953,1954,1955,1956(CM)
+			:Break-ul maxim
+			147
+			:Bani castigati
+			£46,844
+		John Pulman
+			:Nationalitate
+			Englez
+			:Turnee castigate
+			1957,1964,1964,1965,1965,1965,1966,1968(CM)
+			:Break-ul maxim
+			147
+			:Bani castigati
+			£11,401
+		Stephen Hendry
+			:Nationalitate
+			Scoțian
+			:Turnee castigate
+			36(cu puncte),38(necotate cu puncte); 1990,1992,1993,1994,1995,1996,1999(CM)
+			:Break-ul maxim
+			147 (de 11 ori)
+			:Bani castigati
+			£8,669,910
+		Steve Davis
+			:Nationalitate
+			Englez
+			:Turnee castigate
+			28 titluri pentru clasament
+			:Break-ul maxim
+			147 - Lada Classic 1982
+			:Bani castigati
+			£5,500,000(premii)
+		Ray Reardon
+			:Nationalitate
+			Galez
+			:Turnee castigate
+			1970,1973,1974,1975,1976,1978(CM)
+			:Break-ul maxim
+			147
+			:Bani castigati
+			£307,207
+		Ronnie O'Sullivan
+			:Nationalitate
+			Englez
+			:Turnee castigate
+			2001,2004,2008,2012,2013,2020(CM)
+			:Break-ul maxim
+			147 (de 15 ori)
+			:Bani castigati
+			£7,600,000
+		John Higgins
+			:Nationalitate
+			Scoțian
+			:Turnee castigate
+			18; 1998,2007,2009,2011(CM)
+			:Break-ul maxim
+			147 (de 10 ori) ultimul 06.08.2020 la Campionatul Mondial
+			:Bani castigati
+			£5,179,749
+		Mark Williams
+			:Nationalitate
+			Galez
+			:Turnee castigate
+			22; 2000,2003,2018(CM)
+			:Break-ul maxim
+			147(x2)
+			:Bani castigati
+			£6,112,883
+		John Spencer
+			:Nationalitate
+			Englez
+			:Turnee castigate
+			1969,1971,1977(CM)
+			:Break-ul maxim
+			147
+			:Bani castigati
+			Nu e disponibil
+		Mark Selby
+			:Nationalitate
+			Englez
+			:Turnee castigate
+			2014,2016,2017,2021(CM)
+			:Break-ul maxim
+			147 (de 3 ori)
+			:Bani castigati
+			£5,346,908
+		Walter Donaldson
+			:Nationalitate
+			Scoțian
+			:Turnee castigate
+			1947,1950(CM)
+			:Break-ul maxim
+			142 (v John Pulman 1946)
+			:Bani castigati
+			Nu e disponibil
+		Alex Higgins
+			:Nationalitate
+			Nord-Irlandez
+			:Turnee castigate
+			1972,1982(CM)
+			:Break-ul maxim
+			142(x5) - 1984-1985
+			:Bani castigati
+			£711,999
+		Ding Junhui
+			:Nationalitate
+			Chinez
+			:Turnee castigate
+			14(titluri clasament),4(rank minor),4(non-rank)
+			:Break-ul maxim
+			147 (de 5 ori)
+			:Bani castigati
+			£ 2.141.301
+		Judd Trump
+			:Nationalitate
+			Englez
+			:Turnee castigate
+			2019(CM)
+			:Break-ul maxim
+			147 (de 4 ori)
+			:Bani castigati
+			£3,871,754
+		Ken Doherty
+			:Nationalitate
+			Irlandez
+			:Turnee castigate
+			6; 1997(CM)
+			:Break-ul maxim
+			147 (Paul Hunter Classic 2012)
+			:Bani castigati
+			£3,643,193
+		Jimmy White
+			:Nationalitate
+			Englez
+			:Turnee castigate
+			10; Campionatul Mondial	finalist (de 6 ori)
+			:Break-ul maxim
+			147 (1992)
+			:Bani castigati
+			£4,594,790
+		John Parrott
+			:Nationalitate
+			Englez
+			:Turnee castigate
+			16; 1991(CM)
+			:Break-ul maxim
+			147(1991-1992)
+			:Bani castigati
+			£3,160,747
+		Neil Robertson
+			:Nationalitate
+			Australian
+			:Turnee castigate
+			10(cu puncte),3(fără puncte); 2010(CM)
+			:Break-ul maxim
+			147 (4 patru ori)
+			:Bani castigati
+			£2,395,385
+		Stuart Bingham
+			:Nationalitate
+			Englez
+			:Turnee castigate
+			6(titluri clasament),4(turnee minore),8(non-rank); 2015(CM)
+			:Break-ul maxim
+			147 (de 4 ori)
+			:Bani castigati
+			£2,687,615

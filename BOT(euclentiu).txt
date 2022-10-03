@@ -1,0 +1,2262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+    
+<!--Învățare-->
+<category>
+    <pattern>Stiu sa joc *</pattern>
+    <template>
+        Imi voi aminti ca stii sa joci <star/>>.
+        <learn>
+            <category>
+                <pattern>Ce este <eval><star/></eval></pattern>
+                <template>Cred ca <eval><star/></eval> este un sport
+                <reply>
+                <text>As vrea sa stiu cat mai multe despre snooker</text>
+                <postback></postback>
+            </reply>
+            <think><set name="topic">snooker</set></think></template>
+            </category>
+        </learn>
+    </template>
+</category>
+<!--Învățare-->
+
+<category>
+    <pattern>Hello *</pattern>
+    <template><srai>Salut</srai></template>
+</category>
+
+<category>
+    <pattern>Hi *</pattern>
+    <template><srai>Salut</srai></template>
+</category>
+
+<category>
+    <pattern>Salut ^</pattern>
+    <template>Salutare. Cum te numesti?
+        <think><set name="topic">intro</set></think>
+    </template>
+</category>
+
+<category>
+    <pattern>*</pattern>
+    <template>Imi pare rau. Nu te pot ajuta!</template>
+</category>
+
+<topic name="intro">
+    <category>
+        <pattern>sunt *</pattern>
+        <template>
+            <star/>, eu sunt Euclențiu, maestru in snooker, ce ai dori să știi?
+            <reply>
+                <text>As vrea sa stiu cat mai multe despre snooker</text>
+                <postback></postback>
+            </reply>
+            <think><set name="topic">snooker</set></think>
+        </template>
+    </category>
+    
+     <category>
+    <pattern>^</pattern>
+        <template>
+            <star/>, eu sunt Euclențiu, maestru in snooker, ce ai dori să știi?
+             <reply>
+                <text>As vrea sa stiu cat mai multe despre snooker</text>
+                <postback></postback>
+            </reply>
+            <think><set name="topic">snooker</set></think>
+        </template>
+    </category>
+    
+    <category>
+    <pattern>ma numesc *</pattern>
+        <template>
+            <star/>, eu sunt Euclențiu, maestru in snooker, ce ai dori să știi?
+             <reply>
+                <text>As vrea sa stiu cat mai multe despre snooker</text>
+                <postback></postback>
+            </reply>
+            <think><set name="topic">snooker</set></think>
+        </template>
+    </category>
+</topic>
+
+<topic name="snooker">
+    <category>
+        <pattern>As vrea sa stiu cat mai multe despre snooker</pattern>
+        <template>Întreabă-mă orice legat de snooker:
+            <reply>
+                <text>Jucatorul preferat</text>
+                <postback>jp</postback>
+            </reply>
+            <reply>
+                <text>Informatii generale</text>
+                <postback></postback>
+            </reply>
+            <reply>
+                <text>Istoria snooker</text>
+                <postback></postback>
+            </reply>
+            <reply>
+                <text>Cine conduce si organizeaza turneele</text>
+                <postback></postback>
+            </reply>
+            <reply>
+                <text>Turneele importante</text>
+                <postback></postback>
+            </reply>
+            <reply>
+                <text>Jucatori importanti</text>
+                <postback></postback>
+            </reply>
+            <think><set name="topic">snooker1</set></think>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>*</pattern>
+        <template>Imi cer scuze. Te pot ajuta doar cu informatii despre snooker.
+            <think><set name="topic">snooker11</set></think>
+        </template>
+    </category>
+</topic>
+
+
+<topic name="jucatorpref">
+    <category>
+    <pattern>*</pattern>
+    <template>
+        <think><set name="jucator"> <star/></set></think>
+        <condition name="jucator">
+            <li value="*">Jucatorul ales este <get name="jucator"></get></li>
+            <li>Nu mi-ai spus jucatorul tau preferat.</li>
+        </condition>
+    </template>
+    </category>
+    
+    <category>
+        <pattern><set>jucator</set> este</pattern>
+        <template>
+            unul dintre jucatorii importanti. Scrie Inapoi si alege categoria Jucatori Importanti.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>* este</pattern>
+        <template>nu este un jucator important. Scrie Inapoi si alege categoria Jucatori Importanti.</template>
+    </category>
+    
+    <category>
+        <pattern>Inapoi</pattern>
+        <template>
+            <button>
+                <text>Vreau sa aflu altceva despre snooker</text>
+                <postback>As vrea sa stiu cat mai multe despre snooker</postback>
+            </button>
+            <think><set name="topic">snooker</set></think>
+        </template>
+    </category>
+    
+</topic>
+
+<topic name="snooker1">
+    
+    <category>
+        <pattern>jp</pattern>
+        <template>
+            Jucatorul preferat:
+            <think><set name="topic">jucatorpref</set></think>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>Informatii generale</pattern>
+        <template>Ce ai dori să știi?
+         <reply>
+                <text>Orice</text>
+                <postback></postback>
+            </reply>
+            <think><set name="topic">infgen</set></think>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>Istoria snooker</pattern>
+        <template>Informații generale despre istoria snooker-ului?
+            <reply>
+                <text>Da</text>
+                <postback></postback>
+            </reply>
+            <think><set name="topic">istoria</set></think>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>cine conduce si organizeaza turneele</pattern>
+        <template>
+            Următoarele asociații conduc și organizează turneele:
+            <button>
+                <text>WPBSA(World Professional Billiards and Snooker Association)</text>
+                <postback>WPBSA</postback>
+            </button>
+            <button>
+                <text>IBSF(International Billiards and Snooker Federation)</text>
+                <postback>IBSF</postback>
+            </button>
+            <think><set name="topic">lideri</set></think>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>Turneele importante</pattern>
+        <template>
+            Turneele importante sunt:
+            <button>
+                <text>Campionatul Mondial</text>
+                <postback>CM</postback>
+            </button>
+            <button>
+                <text>Turneele cu puncte</text>
+                <postback>TCP</postback>
+            </button>
+            <button>
+                <text>Turneele pe baza de invitatie</text>
+                <postback>TBI</postback>
+            </button>
+            <think><set name="topic">turneeimp</set></think>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>Jucatori importanti</pattern>
+        <template>
+            Jucatorii importanti sunt:
+            <button>
+                <text>Joe Davis</text>
+                <postback>joedavis</postback>
+            </button>
+            <button>
+                <text>Fred Davis</text>
+                <postback>freddavis</postback>
+            </button>
+            <button>
+                <text>John Pulman</text>
+                <postback>johnpulman</postback>
+            </button>
+            <button>
+                <text>Stephen Hendry</text>
+                <postback>stephenhendry</postback>
+            </button>
+            <button>
+                <text>Steve Davis</text>
+                <postback>stevedavis</postback>
+            </button>
+            <button>
+                <text>Ray Reardon</text>
+                <postback>rayreardon</postback>
+            </button>
+            <button>
+                <text>Ronnie O'Sullivan</text>
+                <postback>ronnieosullivan</postback>
+            </button>
+            <button>
+                <text>John Higgins</text>
+                <postback>johnhiggins</postback>
+            </button>
+            <button>
+                <text>Mark Williams</text>
+                <postback>markwilliams</postback>
+            </button>
+            <button>
+                <text>John Spencer</text>
+                <postback>johnspencer</postback>
+            </button>
+            <button>
+                <text>Mark Selby</text>
+                <postback>markselby</postback>
+            </button>
+            <button>
+                <text>Walter Donaldson</text>
+                <postback>walterdonaldson</postback>
+            </button>
+            <button>
+                <text>Alex Higgins</text>
+                <postback>alexhiggins</postback>
+            </button>
+            <button>
+                <text>Ding Junhui</text>
+                <postback>dingjunhui</postback>
+            </button>
+            <button>
+                <text>Judd Trump</text>
+                <postback>juddtrump</postback>
+            </button>
+            <button>
+                <text>Ken Doherty</text>
+                <postback>kendoherty</postback>
+            </button>
+            <button>
+                <text>Jimmy White</text>
+                <postback>jimmywhite</postback>
+            </button>
+            <button>
+                <text>John Parrott</text>
+                <postback>johnparrott</postback>
+            </button>
+            <button>
+                <text>Neil Robertson</text>
+                <postback>neilrobertson</postback>
+            </button>
+            <button>
+                <text>Stuart Bingham</text>
+                <postback>stuartbingham</postback>
+            </button>
+            <think><set name="topic">jucatoriimportanti</set></think>
+        </template>
+    </category>
+    
+</topic>
+
+<topic name="jucatoriimportanti">
+    <category>
+        <pattern>Inapoi</pattern>
+        <template>
+            <button>
+                <text>Vreau sa aflu altceva despre snooker</text>
+                <postback>As vrea sa stiu cat mai multe despre snooker</postback>
+            </button>
+            <think><set name="topic">snooker</set></think>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>joedavis</pattern>
+        <template>
+            <button>
+                <text>Nationalitate</text>
+                <postback>joedavisn</postback>
+            </button>
+            <button>
+                <text>Turnee castigate</text>
+                <postback>joedavistc</postback>
+            </button>
+            <button>
+                <text>Breakul maxim</text>
+                <postback>joedavisbm</postback>
+            </button>
+            <button>
+                <text>Bani castigati</text>
+                <postback>joedavisbc</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>joedavisn</pattern>
+        <template>
+            Nationalitatea lui Joe Davis: englez
+            <button>
+                <text>Alta informatie despre Joe Davis</text>
+                <postback>joedavis</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>joedavistc</pattern>
+        <template>
+            Turnee castigate: 22; 1927-1940,1946(CM).
+            <button>
+                <text>Alta informatie despre Joe Davis</text>
+                <postback>joedavis</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>joedavisbm</pattern>
+        <template>
+            Break maxim: 147(in 1955).
+            <button>
+                <text>Alta informatie despre Joe Davis</text>
+                <postback>joedavis</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>joedavisbc</pattern>
+        <template>
+            Bani castigati: £52,672.
+            <button>
+                <text>Alta informatie despre Joe Davis</text>
+                <postback>joedavis</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>freddavis</pattern>
+        <template>
+            <button>
+                <text>Nationalitate</text>
+                <postback>freddavisn</postback>
+            </button>
+            <button>
+                <text>Turnee castigate</text>
+                <postback>freddavistc</postback>
+            </button>
+            <button>
+                <text>Breakul maxim</text>
+                <postback>freddavisbm</postback>
+            </button>
+            <button>
+                <text>Bani castigati</text>
+                <postback>freddavisbc</postback>
+            </button>
+        </template>
+    </category>
+    
+     <category>
+        <pattern>freddavisn</pattern>
+        <template>
+            Nationalitatea lui Fred Davis: englez
+            <button>
+                <text>Alta informatie despre Fred Davis</text>
+                <postback>freddavis</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>freddavistc</pattern>
+        <template>
+            Turnee castigate: 1948,1949,1951,1952,1953,1954,1955,1956(CM).
+            <button>
+                <text>Alta informatie despre Fred Davis</text>
+                <postback>freddavis</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>freddavisbm</pattern>
+        <template>
+            Break maxim: 147.
+            <button>
+                <text>Alta informatie despre Fred Davis</text>
+                <postback>freddavis</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>freddavisbc</pattern>
+        <template>
+            Bani castigati: £46,844.
+            <button>
+                <text>Alta informatie despre Fred Davis</text>
+                <postback>freddavis</postback>
+            </button>
+        </template>
+    </category>
+    
+    
+    <category>
+        <pattern>johnpulman</pattern>
+        <template>
+            <button>
+                <text>Nationalitate</text>
+                <postback>johnpulmann</postback>
+            </button>
+            <button>
+                <text>Turnee castigate</text>
+                <postback>johnpulmantc</postback>
+            </button>
+            <button>
+                <text>Breakul maxim</text>
+                <postback>johnpulmanbm</postback>
+            </button>
+            <button>
+                <text>Bani castigati</text>
+                <postback>johnpulmanbc</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>johnpulmann</pattern>
+        <template>
+            Nationalitatea lui John Pulman: englez
+            <button>
+                <text>Alta informatie despre John Pulman</text>
+                <postback>johnpulman</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>johnpulmantc</pattern>
+        <template>
+            Turnee castigate: 1957,1964,1964,1965,1965,1965,1966,1968(CM).
+            <button>
+                <text>Alta informatie despre John Pulman</text>
+                <postback>johnpulman</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>johnpulmanbm</pattern>
+        <template>
+            Break maxim: 147.
+            <button>
+                <text>Alta informatie despre John Pulman</text>
+                <postback>johnpulman</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>johnpulmanbc</pattern>
+        <template>
+            Bani castigati: £11,401.
+            <button>
+                <text>Alta informatie despre John Pulman</text>
+                <postback>johnpulman</postback>
+            </button>
+        </template>
+    </category>
+    
+    
+    <category>
+        <pattern>stephenhendry</pattern>
+        <template>
+            <button>
+                <text>Nationalitate</text>
+                <postback>stephenhendryn</postback>
+            </button>
+            <button>
+                <text>Turnee castigate</text>
+                <postback>stephenhendrytc</postback>
+            </button>
+            <button>
+                <text>Breakul maxim</text>
+                <postback>stephenhendrybm</postback>
+            </button>
+            <button>
+                <text>Bani castigati</text>
+                <postback>stephenhendrybc</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>stephenhendryn</pattern>
+        <template>
+            Nationalitatea lui Stephen Hendry: scotian
+            <button>
+                <text>Alta informatie despre Stephen Hendry</text>
+                <postback>stephenhendry</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>stephenhendrytc</pattern>
+        <template>
+            Turnee castigate: 36(cu puncte),38(necotate cu puncte); 1990,1992,1993,1994,1995,1996,1999(CM).
+            <button>
+                <text>Alta informatie despre Stephen Hendry</text>
+                <postback>stephenhendry</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>stephenhendrybm</pattern>
+        <template>
+            Break maxim: 147 (de 11 ori).
+            <button>
+                <text>Alta informatie despre Stephen Hendry</text>
+                <postback>stephenhendry</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>stephenhendrybc</pattern>
+        <template>
+            Bani castigati: £8,669,910.
+            <button>
+                <text>Alta informatie despre Stephen Hendry</text>
+                <postback>stephenhendry</postback>
+            </button>
+        </template>
+    </category>
+    
+    
+     <category>
+        <pattern>stevedavis</pattern>
+        <template>
+            <button>
+                <text>Nationalitate</text>
+                <postback>stevedavisn</postback>
+            </button>
+            <button>
+                <text>Turnee castigate</text>
+                <postback>stevedavistc</postback>
+            </button>
+            <button>
+                <text>Breakul maxim</text>
+                <postback>stevedavisbm</postback>
+            </button>
+            <button>
+                <text>Bani castigati</text>
+                <postback>stevedavisbc</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>stevedavisn</pattern>
+        <template>
+            Nationalitatea lui Steve Davis: englez
+            <button>
+                <text>Alta informatie despre Steve Davis</text>
+                <postback>stevedavis</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>stevedavistc</pattern>
+        <template>
+            Turnee castigate: 28 titluri pentru clasament.
+            <button>
+                <text>Alta informatie despre Steve Davis</text>
+                <postback>stevedavis</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>stevedavisbm</pattern>
+        <template>
+            Break maxim: 147 - Lada Classic 1982.
+            <button>
+                <text>Alta informatie despre Steve Davis</text>
+                <postback>stevedavis</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>stevedavisbc</pattern>
+        <template>
+            Bani castigati: £5,500,000(premii).
+            <button>
+                <text>Alta informatie despre Steve Davis</text>
+                <postback>stevedavis</postback>
+            </button>
+        </template>
+    </category>
+    
+    
+    
+    <category>
+        <pattern>rayreardon</pattern>
+        <template>
+            <button>
+                <text>Nationalitate</text>
+                <postback>rayreardonn</postback>
+            </button>
+            <button>
+                <text>Turnee castigate</text>
+                <postback>rayreardontc</postback>
+            </button>
+            <button>
+                <text>Breakul maxim</text>
+                <postback>rayreardonbm</postback>
+            </button>
+            <button>
+                <text>Bani castigati</text>
+                <postback>rayreardonbc</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>rayreardonn</pattern>
+        <template>
+            Nationalitatea lui Ray Reardon: galez
+            <button>
+                <text>Alta informatie despre Ray Reardon</text>
+                <postback>rayreardon</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>rayreardontc</pattern>
+        <template>
+            Turnee castigate: 28 titluri pentru clasament.
+            <button>
+                <text>Alta informatie despre Ray Reardon</text>
+                <postback>rayreardon</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>rayreardonbm</pattern>
+        <template>
+            Break maxim: 147 - Lada Classic 1982.
+            <button>
+                <text>Alta informatie despre Ray Reardon</text>
+                <postback>rayreardon</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>rayreardonbc</pattern>
+        <template>
+            Bani castigati: £5,500,000(premii).
+            <button>
+                <text>Alta informatie despre Ray Reardon</text>
+                <postback>rayreardon</postback>
+            </button>
+        </template>
+    </category>
+    
+    
+    <category>
+        <pattern>ronnieosullivan</pattern>
+        <template>
+            <button>
+                <text>Nationalitate</text>
+                <postback>ronnieosullivann</postback>
+            </button>
+            <button>
+                <text>Turnee castigate</text>
+                <postback>ronnieosullivantc</postback>
+            </button>
+            <button>
+                <text>Breakul maxim</text>
+                <postback>ronnieosullivanbm</postback>
+            </button>
+            <button>
+                <text>Bani castigati</text>
+                <postback>ronnieosullivanbc</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>ronnieosullivann</pattern>
+        <template>
+            Nationalitatea lui Ronnie O'Sullivan: englez
+            <button>
+                <text>Alta informatie despre Ronnie O'Sullivan</text>
+                <postback>ronnieosullivan</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>ronnieosullivantc</pattern>
+        <template>
+            Turnee castigate: 2001,2004,2008,2012,2013,2020(CM).
+            <button>
+                <text>Alta informatie despre Ronnie O'Sullivan</text>
+                <postback>ronnieosullivan</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>ronnieosullivanbm</pattern>
+        <template>
+            Break maxim: 147 (de 15 ori).
+            <button>
+                <text>Alta informatie despre Ronnie O'Sullivan</text>
+                <postback>ronnieosullivan</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>ronnieosullivanbc</pattern>
+        <template>
+            Bani castigati: £7,600,000.
+            <button>
+                <text>Alta informatie despre Ronnie O'Sullivan</text>
+                <postback>ronnieosullivan</postback>
+            </button>
+        </template>
+    </category>
+    
+    
+    <category>
+        <pattern>johnhiggins</pattern>
+        <template>
+            <button>
+                <text>Nationalitate</text>
+                <postback>johnhigginsn</postback>
+            </button>
+            <button>
+                <text>Turnee castigate</text>
+                <postback>johnhigginstc</postback>
+            </button>
+            <button>
+                <text>Breakul maxim</text>
+                <postback>johnhigginsbm</postback>
+            </button>
+            <button>
+                <text>Bani castigati</text>
+                <postback>johnhigginsbc</postback>
+            </button>
+        </template>
+    </category>
+    
+     <category>
+        <pattern>johnhigginsn</pattern>
+        <template>
+            Nationalitatea lui John Higgins: scotian
+            <button>
+                <text>Alta informatie despre John Higgins</text>
+                <postback>johnhiggins</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>johnhigginstc</pattern>
+        <template>
+            Turnee castigate: 18; 1998,2007,2009,2011(CM).
+            <button>
+                <text>Alta informatie despre John Higgins</text>
+                <postback>johnhiggins</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>johnhigginsbm</pattern>
+        <template>
+            Break maxim: 147 (de 10 ori) ultimul 06.08.2020 la Campionatul Mondial.
+            <button>
+                <text>Alta informatie despre John Higgins</text>
+                <postback>johnhiggins</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>johnhigginsbc</pattern>
+        <template>
+            Bani castigati: £5,179,749.
+            <button>
+                <text>Alta informatie despre John Higgins</text>
+                <postback>johnhiggins</postback>
+            </button>
+        </template>
+    </category>
+    
+    
+    <category>
+        <pattern>markwilliams</pattern>
+        <template>
+            <button>
+                <text>Nationalitate</text>
+                <postback>markwilliamsn</postback>
+            </button>
+            <button>
+                <text>Turnee castigate</text>
+                <postback>markwilliamstc</postback>
+            </button>
+            <button>
+                <text>Breakul maxim</text>
+                <postback>markwilliamsbm</postback>
+            </button>
+            <button>
+                <text>Bani castigati</text>
+                <postback>markwilliamsbc</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>markwilliamsn</pattern>
+        <template>
+            Nationalitatea lui Mark Williams: galez
+            <button>
+                <text>Alta informatie despre Mark Williams</text>
+                <postback>markwilliams</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>markwilliamstc</pattern>
+        <template>
+            Turnee castigate: 22; 2000,2003,2018(CM).
+            <button>
+                <text>Alta informatie despre Mark Williams</text>
+                <postback>markwilliams</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>markwilliamsbm</pattern>
+        <template>
+            Break maxim: 147(x2).
+            <button>
+                <text>Alta informatie despre Mark Williams</text>
+                <postback>markwilliams</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>markwilliamsbc</pattern>
+        <template>
+            Bani castigati: £6,112,883.
+            <button>
+                <text>Alta informatie despre Mark Williams</text>
+                <postback>markwilliams</postback>
+            </button>
+        </template>
+    </category>
+    
+    
+    <category>
+        <pattern>johnspencer</pattern>
+        <template>
+            <button>
+                <text>Nationalitate</text>
+                <postback>johnspencern</postback>
+            </button>
+            <button>
+                <text>Turnee castigate</text>
+                <postback>johnspencertc</postback>
+            </button>
+            <button>
+                <text>Breakul maxim</text>
+                <postback>johnspencerbm</postback>
+            </button>
+            <button>
+                <text>Bani castigati</text>
+                <postback>johnspencerbc</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>johnspencern</pattern>
+        <template>
+            Nationalitatea lui John Spencer: englez
+            <button>
+                <text>Alta informatie despre John Spencer</text>
+                <postback>johnspencer</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>johnspencertc</pattern>
+        <template>
+            Turnee castigate: 1969,1971,1977(CM).
+            <button>
+                <text>Alta informatie despre John Spencer</text>
+                <postback>johnspencer</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>johnspencerbm</pattern>
+        <template>
+            Break maxim: 147.
+            <button>
+                <text>Alta informatie despre John Spencer</text>
+                <postback>johnspencer</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>johnspencerbc</pattern>
+        <template>
+            Bani castigati: Nu e disponibil.
+            <button>
+                <text>Alta informatie despre John Spencer</text>
+                <postback>johnspencer</postback>
+            </button>
+        </template>
+    </category>
+    
+    
+    
+    <category>
+        <pattern>markselby</pattern>
+        <template>
+            <button>
+                <text>Nationalitate</text>
+                <postback>markselbyn</postback>
+            </button>
+            <button>
+                <text>Turnee castigate</text>
+                <postback>markselbytc</postback>
+            </button>
+            <button>
+                <text>Breakul maxim</text>
+                <postback>markselbybm</postback>
+            </button>
+            <button>
+                <text>Bani castigati</text>
+                <postback>markselbybc</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>markselbyn</pattern>
+        <template>
+            Nationalitatea lui Mark Selby: englez
+            <button>
+                <text>Alta informatie despre Mark Selby</text>
+                <postback>markselby</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>markselbytc</pattern>
+        <template>
+            Turnee castigate: 2014,2016,2017,2021(CM).
+            <button>
+                <text>Alta informatie despre Mark Selby</text>
+                <postback>markselby</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>markselbybm</pattern>
+        <template>
+            Break maxim: 147 (de 3 ori).
+            <button>
+                <text>Alta informatie despre Mark Selby</text>
+                <postback>markselby</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>markselbybc</pattern>
+        <template>
+            Bani castigati: £5,346,908.
+            <button>
+                <text>Alta informatie despre Mark Selby</text>
+                <postback>markselby</postback>
+            </button>
+        </template>
+    </category>
+    
+    
+    
+    <category>
+        <pattern>walterdonaldson</pattern>
+        <template>
+            <button>
+                <text>Nationalitate</text>
+                <postback>walterdonaldsonn</postback>
+            </button>
+            <button>
+                <text>Turnee castigate</text>
+                <postback>walterdonaldsontc</postback>
+            </button>
+            <button>
+                <text>Breakul maxim</text>
+                <postback>walterdonaldsonbm</postback>
+            </button>
+            <button>
+                <text>Bani castigati</text>
+                <postback>walterdonaldsonbc</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>walterdonaldsonn</pattern>
+        <template>
+            Nationalitatea lui Walter Donaldson: scotian
+            <button>
+                <text>Alta informatie despre Walter Donaldson</text>
+                <postback>walterdonaldson</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>walterdonaldsontc</pattern>
+        <template>
+            Turnee castigate: 1947,1950(CM).
+            <button>
+                <text>Alta informatie despre Walter Donaldson</text>
+                <postback>walterdonaldson</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>walterdonaldsonbm</pattern>
+        <template>
+            Break maxim: 142 (v John Pulman 1946).
+            <button>
+                <text>Alta informatie despre Walter Donaldson</text>
+                <postback>walterdonaldson</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>walterdonaldsonbc</pattern>
+        <template>
+            Bani castigati: Nu e disponibil.
+            <button>
+                <text>Alta informatie despre Walter Donaldson</text>
+                <postback>walterdonaldson</postback>
+            </button>
+        </template>
+    </category>
+    
+    
+    <category>
+        <pattern>alexhiggins</pattern>
+        <template>
+            <button>
+                <text>Nationalitate</text>
+                <postback>alexhigginsn</postback>
+            </button>
+            <button>
+                <text>Turnee castigate</text>
+                <postback>alexhigginstc</postback>
+            </button>
+            <button>
+                <text>Breakul maxim</text>
+                <postback>alexhigginsbm</postback>
+            </button>
+            <button>
+                <text>Bani castigati</text>
+                <postback>alexhigginsbc</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>alexhigginsn</pattern>
+        <template>
+            Nationalitatea lui Alex Higgins: nord-irlandez
+            <button>
+                <text>Alta informatie despre Alex Higgins</text>
+                <postback>alexhiggins</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>alexhigginstc</pattern>
+        <template>
+            Turnee castigate: 1972,1982(CM).
+            <button>
+                <text>Alta informatie despre Alex Higgins</text>
+                <postback>alexhiggins</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>alexhigginsbm</pattern>
+        <template>
+            Break maxim: 142(x5) - 1984-1985.
+            <button>
+                <text>Alta informatie despre Alex Higgins</text>
+                <postback>alexhiggins</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>alexhigginsbc</pattern>
+        <template>
+            Bani castigati: £711,999.
+            <button>
+                <text>Alta informatie despre Alex Higgins</text>
+                <postback>alexhiggins</postback>
+            </button>
+        </template>
+    </category>
+    
+    
+    
+    <category>
+        <pattern>dingjunhui</pattern>
+        <template>
+            <button>
+                <text>Nationalitate</text>
+                <postback>dingjunhuin</postback>
+            </button>
+            <button>
+                <text>Turnee castigate</text>
+                <postback>dingjunhuitc</postback>
+            </button>
+            <button>
+                <text>Breakul maxim</text>
+                <postback>dingjunhuisbm</postback>
+            </button>
+            <button>
+                <text>Bani castigati</text>
+                <postback>dingjunhuibc</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>dingjunhuin</pattern>
+        <template>
+            Nationalitatea lui Ding Junhui: chinez
+            <button>
+                <text>Alta informatie despre Ding Junhui</text>
+                <postback>dingjunhui</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>dingjunhuitc</pattern>
+        <template>
+            Turnee castigate: 14(titluri clasament),4(rank minor),4(non-rank).
+            <button>
+                <text>Alta informatie despre Ding Junhui</text>
+                <postback>dingjunhui</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>dingjunhuibm</pattern>
+        <template>
+            Break maxim: 147 (de 5 ori).
+            <button>
+                <text>Alta informatie despre Ding Junhui</text>
+                <postback>dingjunhui</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>dingjunhuibc</pattern>
+        <template>
+            Bani castigati: £2.141.301.
+            <button>
+                <text>Alta informatie despre Ding Junhui</text>
+                <postback>dingjunhui</postback>
+            </button>
+        </template>
+    </category>
+    
+    
+    <category>
+        <pattern>juddtrump</pattern>
+        <template>
+            <button>
+                <text>Nationalitate</text>
+                <postback>juddtrumpn</postback>
+            </button>
+            <button>
+                <text>Turnee castigate</text>
+                <postback>juddtrumptc</postback>
+            </button>
+            <button>
+                <text>Breakul maxim</text>
+                <postback>juddtrumpbm</postback>
+            </button>
+            <button>
+                <text>Bani castigati</text>
+                <postback>juddtrumpbc</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>juddtrumpn</pattern>
+        <template>
+            Nationalitatea lui Judd Trump: englez
+            <button>
+                <text>Alta informatie despre Judd Trump</text>
+                <postback>juddtrump</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>juddtrumptc</pattern>
+        <template>
+            Turnee castigate: 2019(CM).
+            <button>
+                <text>Alta informatie despre Judd Trump</text>
+                <postback>juddtrump</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>juddtrumpbm</pattern>
+        <template>
+            Break maxim: 147 (de 4 ori).
+            <button>
+                <text>Alta informatie despre Judd Trump</text>
+                <postback>juddtrump</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>juddtrumpbc</pattern>
+        <template>
+            Bani castigati: £3,871,754.
+            <button>
+                <text>Alta informatie despre Judd Trump</text>
+                <postback>juddtrump</postback>
+            </button>
+        </template>
+    </category>
+    
+    
+    <category>
+        <pattern>kendoherty</pattern>
+        <template>
+            <button>
+                <text>Nationalitate</text>
+                <postback>kendohertyn</postback>
+            </button>
+            <button>
+                <text>Turnee castigate</text>
+                <postback>kendohertytc</postback>
+            </button>
+            <button>
+                <text>Breakul maxim</text>
+                <postback>kendohertybm</postback>
+            </button>
+            <button>
+                <text>Bani castigati</text>
+                <postback>kendohertybc</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>kendohertyn</pattern>
+        <template>
+            Nationalitatea lui Ken Doherty: irlandez
+            <button>
+                <text>Alta informatie despre Ken Doherty</text>
+                <postback>kendoherty</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>kendohertytc</pattern>
+        <template>
+            Turnee castigate: 6; 1997(CM).
+            <button>
+                <text>Alta informatie despre Ken Doherty</text>
+                <postback>kendoherty</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>kendohertybm</pattern>
+        <template>
+            Break maxim: 147 (Paul Hunter Classic 2012).
+            <button>
+                <text>Alta informatie despre Ken Doherty</text>
+                <postback>kendoherty</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>kendohertybc</pattern>
+        <template>
+            Bani castigati: £3,643,193.
+            <button>
+                <text>Alta informatie despre Ken Doherty</text>
+                <postback>kendoherty</postback>
+            </button>
+        </template>
+    </category>
+    
+    
+    <category>
+        <pattern>jimmywhite</pattern>
+        <template>
+            <button>
+                <text>Nationalitate</text>
+                <postback>jimmywhiten</postback>
+            </button>
+            <button>
+                <text>Turnee castigate</text>
+                <postback>jimmywhitetc</postback>
+            </button>
+            <button>
+                <text>Breakul maxim</text>
+                <postback>jimmywhitebm</postback>
+            </button>
+            <button>
+                <text>Bani castigati</text>
+                <postback>jimmywhitebc</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>jimmywhiten</pattern>
+        <template>
+            Nationalitatea lui Jimmy White: englez
+            <button>
+                <text>Alta informatie despre Jimmy White</text>
+                <postback>jimmywhite</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>jimmywhitetc</pattern>
+        <template>
+            Turnee castigate: 10; Campionatul Mondial	finalist (de 6 ori).
+            <button>
+                <text>Alta informatie despre Jimmy White</text>
+                <postback>jimmywhite</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>jimmywhitebm</pattern>
+        <template>
+            Break maxim: 147 (1992).
+            <button>
+                <text>Alta informatie despre Jimmy White</text>
+                <postback>jimmywhite</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>jimmywhitebc</pattern>
+        <template>
+            Bani castigati: £4,594,790.
+            <button>
+                <text>Alta informatie despre Jimmy White</text>
+                <postback>jimmywhite</postback>
+            </button>
+        </template>
+    </category>
+    
+    
+    <category>
+        <pattern>johnparrott</pattern>
+        <template>
+            <button>
+                <text>Nationalitate</text>
+                <postback>johnparrottn</postback>
+            </button>
+            <button>
+                <text>Turnee castigate</text>
+                <postback>johnparrotttc</postback>
+            </button>
+            <button>
+                <text>Breakul maxim</text>
+                <postback>johnparrottbm</postback>
+            </button>
+            <button>
+                <text>Bani castigati</text>
+                <postback>johnparrottbc</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>johnparrottn</pattern>
+        <template>
+            Nationalitatea lui John Parrott: englez
+            <button>
+                <text>Alta informatie despre John Parrott</text>
+                <postback>johnparrott</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>johnparrotttc</pattern>
+        <template>
+            Turnee castigate: 16; 1991(CM).
+            <button>
+                <text>Alta informatie despre John Parrott</text>
+                <postback>johnparrott</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>johnparrottbm</pattern>
+        <template>
+            Break maxim: 147(1991-1992).
+            <button>
+                <text>Alta informatie despre John Parrott</text>
+                <postback>johnparrott</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>johnparrottbc</pattern>
+        <template>
+            Bani castigati: £3,160,747.
+            <button>
+                <text>Alta informatie despre John Parrott</text>
+                <postback>johnparrott</postback>
+            </button>
+        </template>
+    </category>
+    
+    
+    <category>
+        <pattern>neilrobertson</pattern>
+        <template>
+            <button>
+                <text>Nationalitate</text>
+                <postback>neilrobertsonn</postback>
+            </button>
+            <button>
+                <text>Turnee castigate</text>
+                <postback>neilrobertsontc</postback>
+            </button>
+            <button>
+                <text>Breakul maxim</text>
+                <postback>neilrobertsonbm</postback>
+            </button>
+            <button>
+                <text>Bani castigati</text>
+                <postback>neilrobertsonbc</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>neilrobertsonn</pattern>
+        <template>
+            Nationalitatea lui Neil Robertson: australian
+            <button>
+                <text>Alta informatie despre Neil Robertson</text>
+                <postback>neilrobertson</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>neilrobertsontc</pattern>
+        <template>
+            Turnee castigate: 10(cu puncte),3(fără puncte); 2010(CM).
+            <button>
+                <text>Alta informatie despre Neil Robertson</text>
+                <postback>neilrobertson</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>neilrobertsonbm</pattern>
+        <template>
+            Break maxim: 147 (4 patru ori).
+            <button>
+                <text>Alta informatie despre Neil Robertson</text>
+                <postback>neilrobertson</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>neilrobertsonbc</pattern>
+        <template>
+            Bani castigati: £2,395,385.
+            <button>
+                <text>Alta informatie despre Neil Robertson</text>
+                <postback>neilrobertson</postback>
+            </button>
+        </template>
+    </category>
+    
+    
+    <category>
+        <pattern>stuartbingham</pattern>
+        <template>
+            <button>
+                <text>Nationalitate</text>
+                <postback>stuartbinghamn</postback>
+            </button>
+            <button>
+                <text>Turnee castigate</text>
+                <postback>stuartbinghamtc</postback>
+            </button>
+            <button>
+                <text>Breakul maxim</text>
+                <postback>stuartbinghambm</postback>
+            </button>
+            <button>
+                <text>Bani castigati</text>
+                <postback>stuartbinghambc</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>stuartbinghamn</pattern>
+        <template>
+            Nationalitatea lui Stuart Bingham: englez
+            <button>
+                <text>Alta informatie despre Stuart Bingham</text>
+                <postback>stuartbingham</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>stuartbinghamtc</pattern>
+        <template>
+            Turnee castigate: 6(titluri clasament),4(turnee minore),8(non-rank); 2015(CM).
+            <button>
+                <text>Alta informatie despre Stuart Bingham</text>
+                <postback>stuartbingham</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>stuartbinghambm</pattern>
+        <template>
+            Break maxim: 147 (de 4 ori).
+            <button>
+                <text>Alta informatie despre Stuart Bingham</text>
+                <postback>stuartbingham</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>stuartbinghambc</pattern>
+        <template>
+            Bani castigati: £2,687,615.
+            <button>
+                <text>Alta informatie despre Stuart Bingham</text>
+                <postback>stuartbingham</postback>
+            </button>
+        </template>
+    </category>
+    
+</topic>
+
+<topic name="turneeimp">
+    <category>
+        <pattern>CM</pattern>
+        <template>
+            Sunt disponibile urmatoarele informații despre Campionatul Mondial:
+            <button>
+                <text>Generalități</text>
+                <postback>cmgen</postback>
+            </button>
+            <button>
+                <text>Istorie</text>
+                <postback>cmist</postback>
+            </button>
+            <button>
+                <text>Campioni</text>
+                <postback>cmcam</postback>
+            </button>
+            <button>
+                <text>Recorduri</text>
+                <postback>cmrec</postback>
+            </button>
+            <think><set name="topic">raspcm</set></think>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>TCP</pattern>
+        <template>
+            Sunt disponibile urmatoarele informații despre turneele cu puncte:
+            <button>
+                <text>Lista turneelor si castigatorii</text>
+                <postback>ltc</postback>
+            </button>
+            <button>
+                <text>Jucatorul cu cele mai multe turnee minore castigate</text>
+                <postback>jtm</postback>
+            </button>
+            <think><set name="topic">rasptcp</set></think>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>TBI</pattern>
+        <template>
+            Sunt disponibile urmatoarele informații despre turneele pe baza de invitatie:
+            <button>
+                <text>Cel mai important turneu pe baza de invitatie</text>
+                <postback>CMB</postback>
+            </button>
+        </template>
+    </category>
+    
+</topic>
+
+<category>
+    <pattern>CMB</pattern>
+    <template>
+        Aici avem doar:
+        <button>
+            <text>Masters</text>
+            <postback>Masters</postback>
+        </button>
+    </template>
+</category>
+
+<category>
+        <pattern>Masters</pattern>
+        <template>
+            <button>
+                <text>Rezultate Masters</text>
+                <postback>RM</postback>
+            </button>
+            <button>
+                <text>Loc de desfasurare Masters</text>
+                <postback>lddm</postback>
+            </button>
+            <button>
+                <text>Premiu Masters</text>
+                <postback>prm</postback>
+            </button>
+            <button>
+                <text>Campion en titre Masters 2021</text>
+                <postback>cetm</postback>
+            </button>
+            <think><set name="topic">rmaster1</set></think>
+        </template>
+</category>
+    
+<topic name="rmaster1">
+    
+    <category>
+        <pattern>Inapoi</pattern>
+        <template>
+            <button>
+                <text>Vreau sa aflu altceva despre snooker</text>
+                <postback>As vrea sa stiu cat mai multe despre snooker</postback>
+            </button>
+            <think><set name="topic">snooker</set></think>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>rm</pattern>
+        <template>
+            Rezultatele Master:
+            <link>
+                <text>rez</text>
+                <url><map name="links">mastersrez</map></url>
+            </link>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>lddm</pattern>
+        <template>
+            Locul de desfasurare este Alexandra Palace(din 2012).
+        </template>
+    </category>
+    
+    <category>
+        <pattern>prm</pattern>
+        <template>
+            Premiul castigarii Mastersului: 725.000 £.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>cetm</pattern>
+        <template>
+            Campionul en titre din 2021 este: Yan Bingtao (CHN).
+        </template>
+    </category>
+    
+</topic>
+
+<topic name="rasptcp">
+    
+    <category>
+        <pattern>Inapoi</pattern>
+        <template>
+            <button>
+                <text>Vreau sa aflu altceva despre snooker</text>
+                <postback>As vrea sa stiu cat mai multe despre snooker</postback>
+            </button>
+            <think><set name="topic">snooker</set></think>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>ltc</pattern>
+        <template>
+            Poftim un link referitor la lista turneelor cu puncte si castigatorii acestora:
+            <link>
+                <text>Turnee si castigatori</text>
+                <url><map name="links">tcplista</map></url>
+            </link>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>jtm</pattern>
+        <template>
+            Jucatorul este Mark Selby.
+        </template>
+    </category>
+    
+</topic>
+
+<topic name="raspcm">
+    
+    <category>
+        <pattern>Inapoi</pattern>
+        <template>
+            <button>
+                <text>Vreau sa aflu altceva despre snooker</text>
+                <postback>As vrea sa stiu cat mai multe despre snooker</postback>
+            </button>
+            <think><set name="topic">snooker</set></think>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>cmgen</pattern>
+        <template>
+            Poftim un link referitor la generalitatile Campionatului Mondial:
+            <link>
+                <text>Generalitati CM</text>
+                <url><map name="links">cmgen</map></url>
+            </link>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>cmist</pattern>
+        <template>
+            Poftim un link referitor la istoria Campionatului Mondial:
+            <link>
+                <text>Istorie CM</text>
+                <url><map name="links">cmist</map></url>
+            </link>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>cmcam</pattern>
+        <template>
+            Poftim un link referitor la campionii Campionatului Mondial:
+            <link>
+                <text>Campionii CM</text>
+                <url><map name="links">cmcamp</map></url>
+            </link>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>cmrec</pattern>
+        <template>
+            Poftim un link referitor la recordurile Campionatului Mondial:
+            <link>
+                <text>Recorduri CM</text>
+                <url><map name="links">cmrec</map></url>
+            </link>
+        </template>
+    </category>
+    
+</topic>
+
+<topic name="infgen">
+    <category>
+        <pattern>Orice</pattern>
+        <template>Alege din următoarele variante:
+            <reply>
+                <text>Ce este snookerul?</text>
+                <postback>ces</postback>
+            </reply>
+            <reply>
+                <text>Dimensiuni masa snooker</text>
+                <postback>dms</postback>
+            </reply>
+            <reply>
+                <text>Jocul din D</text>
+                <postback>jdd</postback>
+            </reply>
+            <reply>
+                <text>Repoziționarea bilelor colorate</text>
+                <postback>rbc</postback>
+            </reply>
+            <reply>
+                <text>Touching Ball</text>
+                <postback>tb</postback>
+            </reply>
+            <reply>
+                <text>Faulturi</text>
+                <postback>fal</postback>
+            </reply>
+            <reply>
+                <text>Fault si ratare</text>
+                <postback>falr</postback>
+            </reply>
+            <reply>
+                <text>Free Ball</text>
+                <postback>fb</postback>
+            </reply>
+            <reply>
+                <text>Scorul și încheierea jocului</text>
+                <postback>sij</postback>
+            </reply>
+            <think><set name="topic">informatiigenerale</set></think>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>*</pattern>
+        <template>Imi cer scuze. Te pot ajuta doar cu informatii despre snooker.
+            <think><set name="topic">snooker11</set></think>
+        </template>
+    </category>
+</topic>
+
+<topic name="informatiigenerale">
+    <category>
+        <pattern>ces</pattern>
+        <template>
+            Poftim un link referitor la informatii generale privind snookerul:
+            <link>
+                <text>Informatii generale despre snooker</text>
+                <url><map name="links">ceestesnooker</map></url>
+            </link>
+            <button>
+                <text>Vreau sa aflu altceva despre snooker</text>
+                <postback>As vrea sa stiu cat mai multe despre snooker</postback>
+            </button>
+            <think><set name="topic">snooker</set></think>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>dms</pattern>
+        <template>
+            Poftim un link referitor la dimensiunile mesei de snooker:
+            <link>
+                <text>Masa de snooker</text>
+                <url><map name="links">dimensiunimasasnooker</map></url>
+            </link>
+            <button>
+                <text>Vreau sa aflu altceva despre snooker</text>
+                <postback>As vrea sa stiu cat mai multe despre snooker</postback>
+            </button>
+            <think><set name="topic">snooker</set></think>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>jdd</pattern>
+        <template>
+            Poftim un link referitor la Jocul din D:
+            <link>
+                <text>Jocul din D</text>
+                <url><map name="links">reguli</map></url>
+            </link>
+            <button>
+                <text>Vreau sa aflu altceva despre snooker</text>
+                <postback>As vrea sa stiu cat mai multe despre snooker</postback>
+            </button>
+            <think><set name="topic">snooker</set></think>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>rbc</pattern>
+        <template>
+            Poftim un link referitor la repoziționarea bilelor colorate:
+            <link>
+                <text>Reguli</text>
+                <url><map name="links">repozitionare</map></url>
+            </link>
+            <button>
+                <text>Vreau sa aflu altceva despre snooker</text>
+                <postback>As vrea sa stiu cat mai multe despre snooker</postback>
+            </button>
+            <think><set name="topic">snooker</set></think>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>tb</pattern>
+        <template>
+            Poftim un link referitor la touching ball:
+            <link>
+                <text>Touching ball</text>
+                <url><map name="links">touchingball</map></url>
+            </link>
+            <button>
+                <text>Vreau sa aflu altceva despre snooker</text>
+                <postback>As vrea sa stiu cat mai multe despre snooker</postback>
+            </button>
+            <think><set name="topic">snooker</set></think>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>fal</pattern>
+        <template>
+            Poftim un link referitor la faulturi:
+            <link>
+                <text>Fault</text>
+                <url><map name="links">faulturi</map></url>
+            </link>
+            <button>
+                <text>Vreau sa aflu altceva despre snooker</text>
+                <postback>As vrea sa stiu cat mai multe despre snooker</postback>
+            </button>
+            <think><set name="topic">snooker</set></think>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>falr</pattern>
+        <template>
+            Poftim un link referitor la fault si ratare:
+            <link>
+                <text>Fault si ratare</text>
+                <url><map name="links">faultsiratare</map></url>
+            </link>
+            <button>
+                <text>Vreau sa aflu altceva despre snooker</text>
+                <postback>As vrea sa stiu cat mai multe despre snooker</postback>
+            </button>
+            <think><set name="topic">snooker</set></think>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>fb</pattern>
+        <template>
+            Poftim un link referitor la free ball:
+            <link>
+                <text>Free Ball</text>
+                <url><map name="links">freeball</map></url>
+            </link>
+            <button>
+                <text>Vreau sa aflu altceva despre snooker</text>
+                <postback>As vrea sa stiu cat mai multe despre snooker</postback>
+            </button>
+            <think><set name="topic">snooker</set></think>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>sij</pattern>
+        <template>
+            Poftim un link referitor la scoruri si incheierea jocului:
+            <link>
+                <text>Scor</text>
+                <url><map name="links">scorincheiere</map></url>
+            </link>
+            <button>
+                <text>Vreau sa aflu altceva despre snooker</text>
+                <postback>As vrea sa stiu cat mai multe despre snooker</postback>
+            </button>
+            <think><set name="topic">snooker</set></think>
+        </template>
+    </category>
+</topic>
+
+<topic name="istoria">
+    <category>
+        <pattern>Da</pattern>
+        <template>
+            <reply>
+                <text>Istorie generala</text>
+                <postback>daist</postback>
+            </reply>
+            <reply>
+                <text>Clasament ALL Time</text>
+                <postback>clsat</postback>
+            </reply>
+        </template>
+    </category>
+    <category>
+        <pattern>daist</pattern>
+        <template>
+            Poftim un link referitor la istoria generala a snooker-ului:
+            <link>
+                <text>Istoria snooker-ului</text>
+                <url><map name="links">istoriasnooker</map></url>
+            </link>
+            <button>
+                <text>Vreau sa aflu altceva despre snooker</text>
+                <postback>As vrea sa stiu cat mai multe despre snooker</postback>
+            </button>
+            <think><set name="topic">snooker</set></think>
+        </template>
+    </category>
+    <category>
+        <pattern>clsat</pattern>
+        <template>
+            Poftim un link referitor la Clasamentul ALL Time:
+            <link>
+                <text>Clasament ALL Time</text>
+                <url><map name="links">clasamentalltime</map></url>
+            </link>
+            <button>
+                <text>Vreau sa aflu altceva despre snooker</text>
+                <postback>As vrea sa stiu cat mai multe despre snooker</postback>
+            </button>
+            <think><set name="topic">snooker</set></think>
+        </template>
+    </category>
+</topic>
+
+<topic name="lideri">
+    <category>
+        <pattern>WPBSA</pattern>
+        <template>
+            <button>
+                <text>Istorie</text>
+                <postback>istoriewpbsa</postback>
+            </button>
+            <button>
+                <text>Clasament WPBSA</text>
+                <postback>clasamentwpbsa</postback>
+            </button>
+            <think><set name="topic">rasplideri</set></think>
+        </template>
+    </category>
+    <category>
+        <pattern>IBSF</pattern>
+        <template>
+            <button>
+                <text>Istorie</text>
+                <postback>istorieibsf</postback>
+            </button>
+            <button>
+                <text>Finale masculine</text>
+                <postback>finmasc</postback>
+            </button>
+            <button>
+                <text>Finale feminine</text>
+                <postback>finfem</postback>
+            </button>
+            <think><set name="topic">rasplideri</set></think>
+        </template>
+    </category>
+</topic>
+
+<topic name="rasplideri">
+    <category>
+        <pattern>istoriewpbsa</pattern>
+        <template>
+            Poftim un link referitor la istoria WPBSA:
+            <link>
+                <text>Istorie WPBSA</text>
+                <url><map name="links">WPBSAistoric</map></url>
+            </link>
+            <button>
+                <text>Vreau sa aflu altceva despre snooker</text>
+                <postback>As vrea sa stiu cat mai multe despre snooker</postback>
+            </button>
+            <think><set name="topic">snooker</set></think>
+        </template>
+    </category>
+    <category>
+        <pattern>clasamentwpbsa</pattern>
+        <template>
+            Poftim un link referitor la clasamentul WPBSA:
+            <link>
+                <text>Clasament WPBSA</text>
+                <url><map name="links">WPBSAclasament</map></url>
+            </link>
+            <button>
+                <text>Vreau sa aflu altceva despre snooker</text>
+                <postback>As vrea sa stiu cat mai multe despre snooker</postback>
+            </button>
+            <think><set name="topic">snooker</set></think>
+        </template>
+    </category>
+    <category>
+        <pattern>istorieibsf</pattern>
+        <template>
+            Poftim un link referitor la istoria IBSF:
+            <link>
+                <text>Istorie IBSF</text>
+                <url><map name="links">IBSFistoric</map></url>
+            </link>
+            <button>
+                <text>Vreau sa aflu altceva despre snooker</text>
+                <postback>As vrea sa stiu cat mai multe despre snooker</postback>
+            </button>
+            <think><set name="topic">snooker</set></think>
+        </template>
+    </category>
+    <category>
+        <pattern>finmasc</pattern>
+        <template>
+            Poftim un link referitor la finalele masculine IBSF:
+            <link>
+                <text>Finale masculine IBSF</text>
+                <url><map name="links">IBSFmasc</map></url>
+            </link>
+            <button>
+                <text>Vreau sa aflu altceva despre snooker</text>
+                <postback>As vrea sa stiu cat mai multe despre snooker</postback>
+            </button>
+            <think><set name="topic">snooker</set></think>
+        </template>
+    </category>
+    <category>
+        <pattern>finfem</pattern>
+        <template>
+            Poftim un link referitor la finalele feminine IBSF:
+            <link>
+                <text>Finale feminine IBSF</text>
+                <url><map name="links">IBSFfem</map></url>
+            </link>
+            <button>
+                <text>Vreau sa aflu altceva despre snooker</text>
+                <postback>As vrea sa stiu cat mai multe despre snooker</postback>
+            </button>
+            <think><set name="topic">snooker</set></think>
+        </template>
+    </category>
+    
+</topic>
+
+
+</aiml>
